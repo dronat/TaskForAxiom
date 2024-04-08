@@ -21,7 +21,7 @@ public class DeathLockTest {
     @CsvSource({"true", "false"})
     @ParameterizedTest(name = "DeadLock test with param isUseDeadLock={0}")
     public void testDeadLock(String isUseDeadLock) throws IOException, InterruptedException {
-        String path = Paths.get("").toAbsolutePath() + "\\target\\classes";
+        String path = Paths.get("").toAbsolutePath() + "/target/classes";
         mainProcess = new ProcessBuilder("java", "-cp", path, "ru.axiomjdk.Main", isUseDeadLock).start();
 
         ProcessBuilder jstackPB = new ProcessBuilder("jstack", "-l", String.valueOf(mainProcess.pid()))
